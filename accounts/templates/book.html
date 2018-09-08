@@ -1,0 +1,159 @@
+{% load staticfiles%}
+<!-- <html>
+    <title>Booking</title> -->
+    <style>
+    
+    body, html {
+                    height: 100%;
+                        margin: 0;
+                }
+                .bg {
+                     /* The image used */
+                    background-image: url("{% static 'accounts/media/airplane7.jpg' %}");
+      
+                    /* Full height */
+                    height: 100%; 
+      
+          /* Center and scale the image nicely */
+                     background-position: center;
+                     background-repeat: no-repeat;
+                     background-size: cover;
+                   }
+ ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    li a:hover {
+        background-color: #123;
+    }
+
+    .rightmiddle{
+                  position:absolute;
+                    top:18%;
+                    left: 40%;
+               }  
+
+    .size{
+            height:45px;
+            width:100px ;
+        }           
+    .test{
+        padding:25px 100px;
+        align-self: center;
+    }
+    </style>
+    <html>
+            <title>Booking</title>
+    {% if user.is_authenticated %}
+               
+             <!-- <p><strong>pls login first</strong></p> -->
+               
+    <body class="bg">
+            
+            <ul>
+                <li><a  href="/accounts/home">Home</a></li>
+                <li><a href="/accounts/check">Check</a></li>
+                <li><a href="/accounts/book">Booking</a></li>
+                <li><a href="/accounts/details">Details</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+              </ul>
+
+              <H1 align="center" style="font-size:50px;color: rgb(244, 247, 243)">Book Your Flight</H1>
+        <div class="rightmiddle">
+              <form action="" method="POST">
+                {% csrf_token %}
+                    <!-- <div class="form-group">
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </div> -->
+                        <p style="font-size:40px;color: rgb(244, 247, 243)">  Name : 
+                            <input type="text" name="Name" class="size"> </input>
+                            <!-- <select name="Name" class="size">
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Kolkata">Kolkata</option>
+                                <option value="Nagpur">Nagpur</option>
+                                <option value="Delhi">Delhi</option>   
+                                <option value="Goa">Goa</option>                         
+                            </select><br>
+                             -->
+                            </p>
+                      <p style="font-size:40px;color: rgb(244, 247, 243)">  Source : 
+                    <select name="Source" class="size">
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Kolkata">Kolkata</option>
+                        <option value="Nagpur">Nagpur</option>
+                        <option value="Delhi">Delhi</option>   
+                        <option value="Goa">Goa</option>                         
+                    </select><br></p>
+                    
+                    <p style="font-size:40px;color: rgb(244, 247, 243)">  Destination :
+                    
+                    <select name="Destination" class="size">
+                        <option value="Nagpur">Nagpur</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Mumbai">Mumbai</option>
+                    </select><br>
+                    </p>
+
+                    <p style="font-size:40px;color: rgb(244, 247, 243)">  Date :
+                    
+                        <input type="date" name="Date">
+                            
+                    </p>
+
+                    <p style="font-size:40px;color: rgb(244, 247, 243)">  Class :
+                    
+                            <select name="TClass" class="size">
+                                <option value="Business">Business</option>
+                                <option value="First">First</option>
+                                <option value="Economy">Economy</option>
+                            </select><br>
+                    </p>
+
+                    <p style="font-size:40px;color: rgb(244, 247, 243)">  Flight Name :
+                    
+                            <select name="Flight" class="size">
+                                <option value="AirIndia">Air India</option>
+                                <option value="Jet">Jet Airways</option>
+                                <option value="Indigo">Indigo</option>
+                                <option value="Vistara  ">Vistara</option>
+                            </select><br>
+                            </p>
+                <button class="test" type="submit" value="POST">Book</button>
+            </form>
+
+        </div> 
+       
+       
+
+        {% else %}
+        
+
+        <div class="bg">
+        <div class="rightmiddle">
+            <p style="font-size:50px;"><a href="{% url 'login' %}" style="color: black;">Please login first!!!!!!</a></p>
+            <!-- <button class="test">Login</a></button> -->
+        </div>
+        
+         </div>
+
+
+        {% endif %}
+    </body>
+</html>

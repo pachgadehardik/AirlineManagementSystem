@@ -1,0 +1,74 @@
+<!-- templates/registration/login.html -->
+<!DOCTYPE HTML>
+<html>
+  <head>
+{% extends 'base.html' %}
+
+
+<!-- {% load static %} -->
+<link rel="stylesheet" type="text/css" href="{% static 'mentor/style.css' %}">
+
+<!-- <link rel="stylesheet" type="image" href="{% static 'accounts/media/airplane2.jpg' %}"> -->
+ 
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+  <style>
+    .rightmiddle{
+      position:absolute;
+      top: 25%;
+      left: 73%;
+    }
+    body, html {
+          height: 100%;
+          margin: 0;
+      }
+    .bg {
+          /* The image used */
+          background: url("{% static 'accounts/media/airplane3.jpg' %}");
+      
+          /* Full height */
+          height: 100%; 
+      
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+  </style>
+   
+</head>
+<body>
+    <H1 align="center">AIRLINE MANAGEMENT SYSTEM</H1>
+    <div  class="bg" >
+
+<!-- 
+<div class="col-md-4"> -->
+    
+    <div class="container">
+        
+        <div class="row">
+          <div class="col-md-6">
+          </div>
+          <div class="rightmiddle">
+              <h1 style="font-size: 50px;">Login</h1> 
+<form method="post" class="col-md-4">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+  <a href="/accounts/signup" style="color:red;"<b>Signup if New !</b></a>
+</form>
+        </div>
+      </div>
+
+</div>
+</div>
+<!-- </div>    -->
+
+
+
+{% endblock %}
+
+</body>
+</html>

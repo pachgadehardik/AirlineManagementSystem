@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <style>
+      body, html {
+          height: 100%;
+          margin: 0;
+      }
+      
+      .bg {
+          /* The image used */
+          background-image: url("{% static 'accounts/media/airplane1.jpg' %}");
+      
+          /* Full height */
+          height: 100%; 
+      
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+      </style>
+</head>
+<body >
+    <div  class="bg" >
+      <div class ="container">
+    
+  <main>
+
+    {% block content %}
+    {% endblock %}
+  </main>
+  </div>
+</div>
+</body>
+</html>

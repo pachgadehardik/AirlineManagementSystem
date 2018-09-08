@@ -1,0 +1,113 @@
+<!-- templates/home.html -->
+<html>
+{% extends 'base.html' %}
+
+<style>
+
+  .rightmiddle{
+      position:absolute;
+      top: 45%;
+      left: 75%;
+    }
+</style>
+
+{% block content %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+{% load staticfiles  %}
+
+<!-- <link rel="stylesheet" href="{% static 'accounts/style.css'  %}" > -->
+<!-- <img src="{% static "accounts/media/airplane1.jpg" %}" /> -->
+<!-- <link rel="stylesheet" href="{% static 'accounts/media/airplane1.jpg'  %}" > -->
+<head>
+    <style>
+        .rightmiddle{
+                  position:absolute;
+                    top: 30%;
+                    left: 10%;
+                    }   
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+    
+    li {
+        float: left;
+    }
+    
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+    
+    li a:hover {
+        background-color: #123;
+    }
+    </style>
+    </head>
+    <body>
+            <H1 align="center" style="color: rgb(244, 247, 243);">AIRLINE MANAGEMENT SYSTEM</H1>
+        
+          
+    
+    <!-- <H1 align="center">AIRLINE MANAGEMENT SYSTEM</H1> -->
+{% if user.is_authenticated %}
+
+<ul>
+        <li><a  href="/accounts/home">Home</a></li>
+        <li><a href="/accounts/check">Check</a></li>
+        <li><a href="/accounts/book">Booking</a></li>
+        <li><a href="/accounts/details">Details</a></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+ </ul>
+           
+           <p style="font-size:40px;">  Hi {{ user.username }}!</p>
+
+          <p  style="font-size:40px;"> NAME: {{user.get_full_name}}</p>
+
+          
+              <p  style="font-size:40px;">EMAIL:{{user.email}}</p>
+
+                <p  style="font-size:40px;"> LAST LOGIN: {{user.last_login}}</p>
+
+
+                <p  style="font-size:40px;"> TOTAL BOOKING: {{book_count}}</p>
+  
+  <!-- <p><button class="btn btn-default" type="button" name="button" ><a href="{% url 'logout' %}">logout</a></button></p> -->
+
+  
+{% else %}
+
+<ul>
+        <li><a  href="/accounts/home">Home</a></li>
+        <li><a href="/accounts/check">Check</a></li>
+        <li><a href="/accounts/book">Booking</a></li>
+        <li><a href="/accounts/details">Details</a></li>
+        <li><a href="{% url 'login' %}">Login</a></li>
+      </ul>
+  
+  <div class="container">
+       
+  <div class="rightmiddle">
+  <!-- <button  class="btn btn-default" type="button" name="button"><a href="{% url 'login' %}">login</a></button> -->
+  </div>
+</div>
+  <p>
+      <div class="col-md-4">
+        <div class="rightmiddle" style="color: rgb(244, 247, 243) ;"><b>
+        An airline is a company that provides air transport services for traveling passengers and freight. Airlines utilize aircraft to supply these services and may form partnerships or alliances with other airlines for codeshare agreements. Generally, airline companies are recognized with an air operating certificate or license issued by a governmental aviation body.
+
+        Airlines vary in size, from small domestic airlines to full-service international airlines. Airline services can be categorized as being intercontinental, domestic, regional, or international, and may be operated as scheduled services or charters. The largest airline currently is American Airlines Group.</b>>
+    </div>
+</div>
+  </p>
+{% endif %}
+{% endblock %}
+</body>
+</html>
